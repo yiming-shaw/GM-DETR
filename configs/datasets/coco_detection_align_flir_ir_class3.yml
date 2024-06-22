@@ -1,0 +1,21 @@
+metric: COCO
+num_classes: 3
+
+TrainDataset:
+  name: COCODataSet
+  image_dir: images
+  anno_path: annotations/align_flir_train_class3_ir.json
+  dataset_dir: dataset/align_flir
+  data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  name: COCODataSet
+  image_dir: images
+  anno_path: annotations/align_flir_val_class3_ir.json
+  dataset_dir: dataset/align_flir
+  allow_empty: true
+
+TestDataset:
+  name: ImageFolder
+  anno_path: annotations/align_flir_val_class3_ir.json # also support txt (like VOC's label_list.txt)
+  dataset_dir:  dataset/align_flir # if set, anno_path will be 'dataset_dir/anno_path'

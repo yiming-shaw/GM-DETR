@@ -1,0 +1,21 @@
+metric: COCO
+num_classes: 1
+
+TrainDataset:
+  name: COCODataSet
+  image_dir: images
+  anno_path: annotations/LLVIP_train_class1_ir.json
+  dataset_dir: dataset/LLVIP
+  data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  name: COCODataSet
+  image_dir: images
+  anno_path: annotations/LLVIP_val_class1_ir.json
+  dataset_dir: dataset/LLVIP
+  allow_empty: true
+
+TestDataset:
+  name: ImageFolder
+  anno_path: annotations/LLVIP_val_class1_ir.json # also support txt (like VOC's label_list.txt)
+  dataset_dir:  dataset/LLVIP # if set, anno_path will be 'dataset_dir/anno_path'

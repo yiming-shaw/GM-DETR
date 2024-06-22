@@ -1,0 +1,40 @@
+_BASE_: [
+  '../datasets/coco_detection_LLVIP_merge_class1.yml',
+  '../runtime.yml',
+  '_base_/optimizer_5x.yml',
+  '_base_/rtdetr_r50vd_640_640.yml',
+  '_base_/gmdetr_X_reader_LLVIP_train1.yml',
+]
+
+weights: output/gmdetr_hgnetv2_x_5x_LLVIP_ir_X_class1_train1/model_final
+pretrain_weights: https://bj.bcebos.com/v1/paddledet/models/pretrained/PPHGNetV2_X_ssld_pretrained.pdparams
+find_unused_parameters: False
+log_iter: 200
+
+
+DETR:
+  backbone: PPHGNetV2X6
+  neck: EfficientFusionEncoder
+
+PPHGNetV2X6:
+  arch: 'X'
+  return_idx: [1, 2, 3]
+  freeze_stem_only: True
+  freeze_at: 0
+  freeze_norm: True
+  lr_mult_list: [0., 0.01, 0.01, 0.01, 0.01]
+
+
+EfficientFusionEncoder:
+  hidden_dim: 384
+  use_encoder_idx: [2]
+  num_encoder_layers: 1
+  encoder_layer:
+    name: TransformerLayer
+    d_model: 384
+    nhead: 8
+    dim_feedforward: 2048
+    dropout: 0.
+    activation: 'gelu'
+  expansion: 1.0
+

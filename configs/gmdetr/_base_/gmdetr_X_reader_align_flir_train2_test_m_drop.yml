@@ -1,0 +1,43 @@
+worker_num: 4
+TrainReader:
+  sample_transforms:
+    - DecodeXv1align: {}
+    - RandomDistortX: {prob: 0.8}
+    - RandomExpandX: {ratio: 2.,  fill_value: [123.675, 116.28, 103.53]}
+    - RandomCropX: {prob: 0.8}
+    - RandomFlipX: {}
+  batch_transforms:
+    - BatchRandomResizeX: {target_size: [480, 512, 544, 576, 608, 640, 640, 640, 672, 704, 736, 768, 800], random_size: True, random_interp: True, keep_ratio: False}
+    - NormalizeImageX: {mean: [0., 0., 0.], std: [1., 1., 1.], norm_type: none}
+    - NormalizeBoxX: {}
+    - BboxXYXY2XYWHX: {}
+    - PermuteX: {}
+  batch_size: 4
+  shuffle: true
+  drop_last: true
+  collate_batch: false
+  use_shared_memory: false
+
+
+EvalReader:
+  sample_transforms:
+    - DecodeXv1aligntest: {}
+    - ResizeX: {target_size: [640, 640], keep_ratio: False, interp: 2}
+    - NormalizeImageX: {mean: [0., 0., 0.], std: [1., 1., 1.], norm_type: none}
+    - PermuteX: {}
+  batch_size: 4
+  shuffle: false
+  drop_last: false
+
+
+TestReader:
+  inputs_def:
+    image_shape: [3, 640, 640]
+  sample_transforms:
+    - DecodeXv1align: {}
+    - ResizeX: {target_size: [640, 640], keep_ratio: False, interp: 2}
+    - NormalizeImageX: {mean: [0., 0., 0.], std: [1., 1., 1.], norm_type: none}
+    - PermuteX: {}
+  batch_size: 1
+  shuffle: false
+  drop_last: false
