@@ -11,7 +11,7 @@ ule to extract the high-level information from RGB and IR, and propose the Cross
 
 ## Overview
 <div align="left">
-<img src="" width="800">
+<img src="overview.jpg" width="800">
 </div>
 
 
