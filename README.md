@@ -68,7 +68,7 @@ It is recommended to use Python version 3.8 and follow the [PaddleDetection inst
 python3 -m pip install paddlepaddle-gpu==2.4.2.post116 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
 
 # Clone PaddleDetection repository
-git clone https://github.com/GM-DETR
+git clone https://github.com/yiming-shaw/GM-DETR
 
 # Install other dependencies
 cd GM-DETR
