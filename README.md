@@ -32,18 +32,19 @@ GM-DETR
 └── data
     ├── FLIR
     │   ├── annotations
-    │          ├── algn_flir_train_class3_ir.json
-    │          ├── algn_flir_train_class3_rgb.json
-    │          ├── algn_flir_train_class3_merge.json
-    │          ├── algn_flir_val_class3_ir.json
-    │          ├── algn_flir_val_class3_rgb.json
-    |          └── algn_flir_val_class3_merge.json
-    │   ├── data_ir
-    |   |      |—— FLIR_00002_PreviewData.jpeg
-    |   |      └── FLIR_00003_PreviewData.jpeg
-    │   └── data_rgb
-    |          |—— FLIR_00002_RGB.jpg
-    |          └── FLIR_00003_RGB.jpg
+    │   |       ├── algn_flir_train_class3_ir.json
+    │   |       ├── algn_flir_train_class3_rgb.json
+    │   |       ├── algn_flir_train_class3_merge.json
+    │   |       ├── algn_flir_val_class3_ir.json
+    │   |       ├── algn_flir_val_class3_rgb.json
+    |   |       └── algn_flir_val_class3_merge.json
+    |   └── images
+    │         ├── data_ir
+    |         |     |—— FLIR_00002_PreviewData.jpeg
+    |         |     └── FLIR_00003_PreviewData.jpeg
+    │         └── data_rgb
+    |               |—— FLIR_00002_RGB.jpg
+    |               └── FLIR_00003_RGB.jpg
     │
     └── LLVIP
         ├── annotations
@@ -53,12 +54,13 @@ GM-DETR
         │      ├── LLVIP_val_class1_ir.json
         │      ├── LLVIP_val_class1_rgb.json
         |      └── LLVIP_val_class1_merge.json
-        ├── data_ir
-        |      |—— 010001.jpg
-        |      └── 010002.jpg
-        └── data_rgb   
-               |—— 010001.jpg
-               └── 010002.jpg
+        └── images
+             ├── data_ir
+             |      |—— 010001.jpg
+             |      └── 010002.jpg
+             └── data_rgb   
+                    |—— 010001.jpg
+                    └── 010002.jpg
 ```
 ## Installation 
 It is recommended to use Python version 3.8 and follow the [PaddleDetection installation guide](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.7/docs/tutorials/INSTALL.md) for installation.
