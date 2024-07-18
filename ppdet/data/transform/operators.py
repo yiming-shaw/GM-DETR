@@ -168,7 +168,7 @@ class DecodeX(BaseOperator):
         """ load image if 'im_file' field is not empty but 'image' is"""
         if 'image' not in sample:
             # Process the corresponding RGB image
-            if 'images_ir' in sample['im_file']:
+            if 'data_ir' in sample['im_file']:
                 ir_im_file = sample['im_file']
                 rgb_im_file = sample['im_file'].replace('data_ir', 'data_rgb')
                 with open(ir_im_file, 'rb') as f:
