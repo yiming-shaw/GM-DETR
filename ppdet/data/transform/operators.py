@@ -170,7 +170,7 @@ class DecodeX(BaseOperator):
             # Process the corresponding RGB image
             if 'images_ir' in sample['im_file']:
                 ir_im_file = sample['im_file']
-                rgb_im_file = sample['im_file'].replace('images_ir', 'images_rgb')
+                rgb_im_file = sample['im_file'].replace('data_ir', 'data_rgb')
                 with open(ir_im_file, 'rb') as f:
                     sample['image'] = f.read()
                 with open(rgb_im_file, 'rb') as f:
@@ -179,7 +179,7 @@ class DecodeX(BaseOperator):
 
             else:
                 rgb_im_file = sample['im_file']
-                ir_im_file = sample['im_file'].replace('images_rgb', 'images_ir')
+                ir_im_file = sample['im_file'].replace('data_rgb', 'data_ir')
                 with open(rgb_im_file, 'rb') as f:
                     sample['image'] = f.read()
                 with open(ir_im_file, 'rb') as f:
