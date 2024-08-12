@@ -1,0 +1,11 @@
+__include__: [
+  '../dataset/align_flir_X_ir_detection.yml',
+  '../runtime.yml',
+  './include/dataloader_X.yml',
+  './include/optimizer.yml',
+  './include/rtdetr_r50vd_X.yml',
+]
+
+output_dir: ./output/gmdetr_r50vd_6x_align_flir_X
+
+

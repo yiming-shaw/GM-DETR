@@ -1,0 +1,40 @@
+__include__: [
+  '../dataset/align_flir_X_ir_detection.yml',
+  '../runtime.yml',
+  './include/dataloader_X.yml',
+  './include/optimizer.yml',
+  './include/rtdetr_r50vd_X.yml',
+]
+
+output_dir: ./output/gmdetr_r101vd_6x_align_flir_X
+
+checkpoint_step: 2
+
+train_dataloader: 
+  batch_size: 2
+  num_workers: 2
+
+val_dataloader: 
+  batch_size: 2
+  num_workers: 2
+
+PResNetX:
+  depth: 101
+
+
+EfficientFusionEncoder:
+  # intra
+  hidden_dim: 384
+  dim_feedforward: 2048
+
+
+RTDETRTransformer:
+  feat_channels: [384, 384, 384]
+
+
+optimizer:
+  type: AdamW
+  params: 
+    - 
+      params: 'backbone'
+      lr: 0.000001
