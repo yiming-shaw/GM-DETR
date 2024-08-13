@@ -1,0 +1,5 @@
+car
+feright_car
+bus
+truck
+van 

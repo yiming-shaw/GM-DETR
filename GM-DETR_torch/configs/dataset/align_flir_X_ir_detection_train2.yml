@@ -7,13 +7,13 @@ train_dataloader:
   type: DataLoader
   dataset: 
     type: CocoXDetection
-    img_folder: /data0/XYM/GM-DETR/Align_flir/images
-    ann_file: /data0/XYM/GM-DETR/Align_flir/annotations/align_flir_train_class3_ir.json
+    img_folder: ./dataset/align_flir/images
+    ann_file: ./dataset/align_flir/annotations/align_flir_train_class3_ir.json
     transforms:
       type: Compose
       ops: ~
   shuffle: True
-  batch_size: 8
+  batch_size: 4
   num_workers: 4
   drop_last: True 
 
@@ -21,13 +21,13 @@ val_dataloader:
   type: DataLoader
   dataset: 
     type: CocoXDetection
-    img_folder: /data0/XYM/GM-DETR/Align_flir/images
-    ann_file: /data0/XYM/GM-DETR/Align_flir/annotations/align_flir_val_class3_ir.json
+    img_folder: ./dataset/align_flir/images
+    ann_file: ./dataset/align_flir/annotations/align_flir_val_class3_ir.json
     transforms:
       type: Compose
       ops: ~ 
 
   shuffle: False
-  batch_size: 8
-  num_workers: 8
+  batch_size: 4
+  num_workers: 4
   drop_last: False

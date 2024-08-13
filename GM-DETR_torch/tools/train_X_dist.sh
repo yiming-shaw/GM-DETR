@@ -3,5 +3,5 @@ torchrun --nproc_per_node=2 tools/train_X.py -c /data0/XYM/GM-DETR_pytorch/confi
 
 torchrun --nproc_per_node=2 tools/train_X.py -c /data0/XYM/GM-DETR_pytorch/configs/gmdetr/gmdetr_r50vd_6x_align_flir_X_train1.yml
 
-torchrun --nproc_per_node=2 tools/train_X.py -c /data0/XYM/GM-DETR_pytorch/configs/gmdetr/gmdetr_r50vd_6x_align_flir_X_train1.yml \
+torchrun --nproc_per_node=2 tools/train_X.py -c /data0/XYM/GM-DETR_pytorch/configs/gmdetr/gmdetr_r50vd_6x_align_flir_X_train2.yml \
 -r /data0/XYM/GM-DETR_pytorch/output/gmdetr_r50vd_6x_align_flir_X_train1/checkpoint0019.pth

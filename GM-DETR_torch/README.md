@@ -13,13 +13,8 @@ pip install -r requirements.txt
 <details>
 <summary>Data</summary>
 
-- Download and extract COCO 2017 train and val images.
-```
-path/to/coco/
-  annotations/  # annotation json files
-  train2017/    # train images
-  val2017/      # val images
-```
+It's same as the paddle version.
+
 - Modify config [`img_folder`, `ann_file`](configs/dataset/coco_detection.yml)
 </details>
 
@@ -33,23 +28,25 @@ path/to/coco/
 ```shell
 # training on single-gpu
 export CUDA_VISIBLE_DEVICES=0
-python tools/train.py -c configs/rtdetr/rtdetr_r50vd_6x_coco.yml
+python tools/train_X.py -c configs/gmdetr/gmdetr_r101vd_6x_align_flir_X_train2.yml
 ```
 
 - Training on Multiple GPUs:
 
 ```shell
 # train on multi-gpu
-export CUDA_VISIBLE_DEVICES=0,1,2,3
-torchrun --nproc_per_node=4 tools/train.py -c configs/rtdetr/rtdetr_r50vd_6x_coco.yml
+torchrun --nproc_per_node=2 tools/train_X.py -c configs/gmdetr/gmdetr_r50vd_6x_align_flir_X_train1.yml
+
+torchrun --nproc_per_node=2 tools/train_X.py -c configs/gmdetr/gmdetr_r50vd_6x_align_flir_X_train2.yml \
+-r output/gmdetr_r50vd_6x_align_flir_X_train1/xxxxx.pth
 ```
 
-- Evaluation on Multiple GPUs:
+- Evaluation on single GPU:
 
 ```shell
 # val on multi-gpu
-export CUDA_VISIBLE_DEVICES=0,1,2,3
-torchrun --nproc_per_node=4 tools/train.py -c configs/rtdetr/rtdetr_r50vd_6x_coco.yml -r path/to/checkpoint --test-only
+export CUDA_VISIBLE_DEVICES=0
+python tools/train.py -c configs/gmdetr/gmdetr_r101vd_6x_align_flir_X_train2.yml -r path/to/checkpoint --test-only
 ```
 
 </details>
