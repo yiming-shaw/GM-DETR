@@ -35,6 +35,7 @@ python tools/train_X.py -c configs/gmdetr/gmdetr_r101vd_6x_align_flir_X_train2.y
 
 ```shell
 # train on multi-gpu
+export CUDA_VISIBLE_DEVICES=0,1
 torchrun --nproc_per_node=2 tools/train_X.py -c configs/gmdetr/gmdetr_r50vd_6x_align_flir_X_train1.yml
 
 torchrun --nproc_per_node=2 tools/train_X.py -c configs/gmdetr/gmdetr_r50vd_6x_align_flir_X_train2.yml \
